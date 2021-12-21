@@ -1,0 +1,12 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: ./docker/frontend/Dockerfile
+    tty: true
+    volumes:
+    - ./frontend:/app/frontend
+    command: sh -c "cd /app/frontend && npm run build && npm run dev"
+    ports:
+      - 3000:3000
