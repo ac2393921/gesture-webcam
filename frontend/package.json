@@ -8,19 +8,26 @@
   },
   "dependencies": {
     "@tensorflow-models/face-landmarks-detection": "^0.0.3",
+    "@tensorflow-models/posenet": "^2.2.2",
     "@tensorflow/tfjs": "^3.12.0",
     "@tensorflow/tfjs-backend-webgl": "^3.12.0",
     "@tensorflow/tfjs-converter": "^3.12.0",
     "@tensorflow/tfjs-core": "^3.12.0",
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-webcam": "^6.0.0"
+    "react-webcam": "^6.0.0",
+    "swr": "^1.1.1"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.2.15",
+    "tailwindcss": "^3.0.7",
     "typescript": "4.0"
   }
 }
