@@ -2,25 +2,21 @@ import Cors from 'cors'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async (
-    req,
-    res) => {
-    console.log('a');
-    return res;
+    req: NextApiRequest,
+    res: NextApiResponse) => {
     if (req.method === "POST") {
-        console.log(req);
-        return res
-        // const formData = new FormData()
-        // formData.append('image', req)
+        const image = req.body.image;
 
-        // const apiRes = await fetch("http://localhost:5000/pose/detect", {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'multipart/form-data',
-        //     }
-            // body: FormData,
-        // })
+        const apiRes = await fetch("http://backend:5000/pose/detect", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({image: image}),
+        })
+
+        const data = await apiRes.json();
+        res.status(201).json(data);
+        return res;
     }
-    // res.statusCode = 200;
-    // res.setHeader('Content-Type', 'application/json');
-    // res.end(JSON.stringify({ name: 'John Doe' }));
 };
