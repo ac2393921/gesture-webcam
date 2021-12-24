@@ -6,7 +6,20 @@ services:
       dockerfile: ./docker/frontend/Dockerfile
     tty: true
     volumes:
-    - ./frontend:/app/frontend
+      - ./frontend:/app/frontend
     command: sh -c "cd /app/frontend && npm run build && npm run dev"
     ports:
       - 3000:3000
+
+  backend:
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/backend/Dockerfile
+    working_dir: '/app/backend'
+    tty: true
+    # network_mode: "host"
+    volumes:
+      - ./backend:/app/backend
+    ports:
+      - 5000:5000
