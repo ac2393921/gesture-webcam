@@ -13,7 +13,7 @@ export default async (
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({image: image}),
-        })
+        });
 
         const data = await apiRes.json();
         res.status(201).json(data);
